@@ -16,7 +16,7 @@ postfix:
 {% if 'aliases' in pillar.get('postfix', '') %}
 {{ postfix.aliases_file }}:
   file.managed:
-    - source: salt://postfix/aliases
+    - source: salt://postfix/files/aliases
     - user: root
     - group: root
     - mode: 644
@@ -36,7 +36,7 @@ run-newaliases:
 {% if 'virtual' in pillar.get('postfix', '') %}
 /etc/postfix/virtual:
   file.managed:
-    - source: salt://postfix/virtual
+    - source: salt://postfix/files/virtual
     - user: root
     - group: root
     - mode: 644
@@ -56,7 +56,7 @@ run-postmap:
 {% if 'sasl_passwd' in pillar.get('postfix', '') %}
 /etc/postfix/sasl_passwd:
   file.managed:
-    - source: salt://postfix/sasl_passwd
+    - source: salt://postfix/files/sasl_passwd
     - user: root
     - group: root
     - mode: 644
@@ -75,7 +75,7 @@ run-postmap:
 {% if 'sender_canonical' in pillar.get('postfix', '') %}
 /etc/postfix/sender_canonical:
   file.managed:
-    - source: salt://postfix/sender_canonical
+    - source: salt://postfix/files/sender_canonical
     - user: root
     - group: root
     - mode: 644
